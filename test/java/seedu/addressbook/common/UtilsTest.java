@@ -3,6 +3,7 @@ package seedu.addressbook.common;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,6 +52,12 @@ public class UtilsTest {
         // all objects unique
         assertAreUnique("abc", "ab", "a");
         assertAreUnique(1, 2);
+        assertAreUnique('a', "a");
+        
+        //two lists
+        List<Object> newList = Arrays.asList("a");
+        assertNotUnique(new ArrayList<Object>(), new ArrayList<Object>());
+        assertNotUnique(new ArrayList<Object>((newList)), new ArrayList<Object>(newList));
 
         // some identical objects
         assertNotUnique("abc", "abc");
